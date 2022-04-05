@@ -7,13 +7,13 @@ const searchSchoolAPIHandle = (locationType: string, schoolType: string, schoolN
     `schulCrseScCode=${schoolType}&` +
     `orgName=${schoolName}&` +
     'loginType=school'
-)
+) 
 
 const searchSchool = async (locationType: string, schoolType: string, schoolName: string):
     Promise<searchSchoolType> => {
 
     if (!schoolName)
-        throw new Error('필수 옵션이 비어있습니다.');
+        throw new Error('필수 옵션이 비어있습니다.'); //정상적인 input값이 아닐 경우
 
     try {
         const response = await axios.get(searchSchoolAPIHandle(locationType, schoolType, encodeURI(schoolName)));
@@ -22,7 +22,7 @@ const searchSchool = async (locationType: string, schoolType: string, schoolName
                 schoolCode: item?.orgCode,
                 schoolName: item?.kraOrgNm,
                 authURL: item?.atptOfcdcConctUrl
-            }
+            } // 뭔가.. 뭔가 학교 관련된 정보를 받아옴....
         });
         if (schoolList.length) {
             return {
