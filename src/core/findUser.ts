@@ -33,4 +33,4 @@ const findUser = async (authURL: string, schoolCode: string, userName: string, u
     }
 }
 
-export default findUser;
+export default findUser; // 다른 곳에서도 사용 가능하게 export
